@@ -1698,7 +1698,7 @@ document.getElementById('editSaleAddBuyer')?.addEventListener('click',addBuyerFr
   loginForm.addEventListener('submit',async e=>{
     e.preventDefault();authError.textContent='Signing in…';
     const {data,error}=await db.auth.signInWithPassword({email:document.getElementById('loginEmail').value.trim(),password:document.getElementById('loginPassword').value});
-    if(error){authError.textContent=error.message;return;} authError.textContent=''; await applySession(data.session);
+    if(error){authError.textContent=error.message;return;} recoveryFlow=false; history.replaceState({}, document.title, location.pathname); authError.textContent=''; await applySession(data.session);
   });
   logoutBtn.addEventListener('click',async()=>{await db.auth.signOut();await applySession(null)});
 
@@ -1816,6 +1816,8 @@ document.getElementById('editSaleAddBuyer')?.addEventListener('click',addBuyerFr
   document.querySelector('.shipmentDetailsClose').onclick=document.querySelector('.shipmentDetailsCloseBtn').onclick=()=>document.getElementById('shipmentDetailsModal').classList.remove('open');
 
   function showLogin(){
+    recoveryFlow=false;
+    history.replaceState({}, document.title, location.pathname);
     forgotCard.classList.add('hidden');
     recoveryCard.classList.add('hidden');
     loginCard.classList.remove('hidden');
