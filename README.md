@@ -12,3 +12,5 @@ Copied from `agricolalucas/aurea-india` to an independent Supabase project `xnju
 - No production site has been published or tested. GitHub Pages must be configured before there is a working site URL.
 
 **Do not enter real business data until authorization, RLS and the remaining modules are validated.** Do not commit passwords or secret/service-role keys.
+
+Deployment refresh requested after China interface localization.
